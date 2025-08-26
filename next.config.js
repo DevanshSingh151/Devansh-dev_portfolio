@@ -1,6 +1,21 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // No experimental config needed for Next.js 14
+  // Ensure proper output for Vercel
+  output: 'standalone',
+  
+  // Enable experimental features for better performance
+  experimental: {
+    optimizeCss: true,
+  },
+  
+  // Image optimization settings
+  images: {
+    domains: [],
+    unoptimized: false,
+  },
+  
+  // Ensure proper trailing slash handling
+  trailingSlash: false,
 }
 
 module.exports = nextConfig
