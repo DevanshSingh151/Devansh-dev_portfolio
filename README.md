@@ -200,12 +200,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **GitHub**: [@DevanshSingh151](https://github.com/DevanshSingh151)
 - **LinkedIn**: [Devansh Singh](https://www.linkedin.com/in/devansh-singh-08139631b/)
 
-## 🙏 Acknowledgments
 
-- **Next.js Team** for the amazing framework
-- **Tailwind CSS** for the utility-first CSS framework
-- **Framer Motion** for smooth animations
-- **Lucide React** for beautiful icons
 
 ---
 
