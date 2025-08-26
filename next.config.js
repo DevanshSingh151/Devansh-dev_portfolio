@@ -3,11 +3,6 @@ const nextConfig = {
   // Ensure proper output for Vercel
   output: 'standalone',
   
-  // Enable experimental features for better performance
-  experimental: {
-    optimizeCss: true,
-  },
-  
   // Image optimization settings
   images: {
     domains: [],
