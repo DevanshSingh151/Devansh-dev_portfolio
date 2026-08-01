@@ -3,16 +3,19 @@ const path = require('path');
 const fs = require('fs');
 
 const rootDir = path.resolve(__dirname, '..');
-const localBinCmd = path.join(rootDir, 'node_modules', '.bin', 'next.cmd');
+const isWin = process.platform === 'win32';
+const nextExecutable = isWin ? 'next.cmd' : 'next';
+const localBinCmd = path.join(rootDir, 'node_modules', '.bin', nextExecutable);
+const npmExecutable = isWin ? 'npm.cmd' : 'npm';
 
 if (!fs.existsSync(localBinCmd)) {
   console.log('Rebuilding node_modules bin links...');
-  execFileSync(`"${path.join(rootDir, 'node_modules', '.bin', 'npm.cmd')}"`, ['rebuild'], { shell: true, stdio: 'inherit', cwd: rootDir });
+  execFileSync(isWin ? `"${path.join(rootDir, 'node_modules', '.bin', npmExecutable)}"` : npmExecutable, ['rebuild'], { shell: true, stdio: 'inherit', cwd: rootDir });
 }
 
-console.log('Executing local next.cmd build via quoted execFileSync...');
+console.log('Executing local next build via execFileSync...');
 try {
-  execFileSync(`"${localBinCmd}"`, ['build'], {
+  execFileSync(isWin ? `"${localBinCmd}"` : localBinCmd, ['build'], {
     shell: true,
     stdio: 'inherit',
     cwd: rootDir,
